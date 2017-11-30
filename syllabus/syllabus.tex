@@ -1,0 +1,268 @@
+\documentclass{article}
+\usepackage{lineno,hyperref,bm,amsmath}
+
+\usepackage[numbers]{natbib}
+
+\usepackage{pdflscape} % provides the landscape environment
+
+\usepackage{graphicx}  %	for images
+\usepackage{subcaption}%	for subfigures
+%\usepackage{braket}    %	for math set notation
+
+\usepackage{titling}
+
+\usepackage{minted}
+
+\usepackage{geometry}
+\geometry{letterpaper, margin=1.1in}
+
+\usepackage{enumitem}
+
+\setlength{\droptitle}{-10em}   % This is your set screw
+
+%	begin footnote issues with hyperref
+\newcommand{\footlabel}[2]{%
+    \addtocounter{footnote}{1}%
+    \footnotetext[\thefootnote]{%
+        \addtocounter{footnote}{-1}%
+        \refstepcounter{footnote}\label{#1}%
+        #2%
+    }%
+    $^{\ref{#1}}$%
+}
+
+\newcommand{\footref}[1]{%
+    $^{\ref{#1}}$%
+}
+%	end footnote issues with hyperref
+
+%\bibliographystyle{plainnat}
+\bibliographystyle{elsarticle-num-names}
+
+
+%%	elsarticle-num-names breaks hyperref with dois, it's a bug, work arround
+\makeatletter
+\providecommand{\doi}[1]{%
+  \begingroup
+    \let\bibinfo\@secondoftwo
+    \urlstyle{rm}%
+    \href{http://dx.doi.org/#1}{%
+      doi:\discretionary{}{}{}%
+      \nolinkurl{#1}%
+    }%
+  \endgroup
+}
+\makeatother
+
+\title{EML4930/EML6934 | Python Programming | Fall 2017 \\ 1 Credit | Thursday 10:40 - 11:30 |  Room: MAE-A 303}
+
+\author{Instructor: Charles Jekel  |  cjekel@ufl.edu  |  \url{http://jekel.me} \\
+ Office hours: Tuesday 9:00 - 11:00 or by appointment (MAE-A 224) \\ \\
+ TA: Victor Lin | vlin@ufl.edu | Office hours: Thursday 1:30 - 3:30 pm (MAE-A 224) %	Your Company / University  \\
+%	\and 
+%	The Other Dude \\
+%	His Company / University \\
+}
+
+\date{\today}
+% Hint: \title{what ever}, \author{who care} and \date{when ever} could stand 
+% before or after the \begin{document} command 
+% BUT the \maketitle command MUST come AFTER the \begin{document} command! 
+\begin{document}
+
+\maketitle
+
+\section{Course description}
+Python is a general purpose programming language. Course covers the basics, linear algebra, plotting, and more to prepare students for solving numerical problems with Python. Python is a viable \textbf{free} and \textbf{open} alternative to MATLAB. Prerequisite: COP 2271 MATLAB or equivalent.
+
+\section{Course prerequisites}
+Students should have taken some type of intro to programming course before (COP 2271 MATLAB or equivalent). 
+
+\section{Required resources}
+Computer and internet connection.
+
+\section{Grading policy}
+No late homework. Two homeworks dropped. A homework will be assigned at the end of every lecture related to the topic of the lecture.
+\begin{itemize}
+\item 12 out of 14 homework | 60~\% of final grade
+\item 2 quizzes | 10~\% of final grade
+\item 1 final exam | 30~\% of final grade
+\end{itemize}
+
+\begin{table}[h!]
+\centering
+%\caption{Letter grade scheme}
+\begin{tabular}{ c l c } 
+\noalign{\smallskip}
+ \% & Grade & Grade Points\\
+\noalign{\smallskip}\hline\noalign{\smallskip}
+93.4 - 100  & A  & 4.00 \\ 
+90.0 - 93.3 & A- & 3.67 \\ 
+86.7 - 89.9 & B+ & 3.33 \\
+83.4 - 86.6 & B  & 3.00 \\ 
+80.0 - 83.3 & B- & 2.67 \\ 
+76.7 - 79.9 & C+ & 2.33 \\ 
+73.4 - 76.6 & C  & 2.00 \\ 
+70.0 - 73.3 & C- & 1.67 \\ 
+66.7 - 69.9 & D+ & 1.33 \\ 
+63.4 - 66.6 & D  & 1.00 \\ 
+60.0 - 63.3 & D- & 0.67 \\ 
+0.00 - 59.9 & E  & 0.00 \\
+ \hline
+\end{tabular}
+\end{table}
+
+\section{Tentative outline}
+\setlist[enumerate,1]{start=0} 
+\begin{enumerate}
+\item 08/24 About Python (2 vs 3), IDEs, IPython\footnote{IPython provides a rich architecture for interactive computing with Python. \url{https://ipython.org/}}, notebooks, and installation
+\item 08/31 Basics: data types, math, loops 
+\item 09/07 Functions, classes, objects, namespace
+\item 09/14 Python libraries and pip
+\item 09/21 Numpy\footnote{NumPy is the fundamental package for scientific computing with Python. \url{http://www.numpy.org/}\label{note1}} and Matrix operations
+\item 09/28 More Numpy\footref{note1} and Matplotlib\footnote{Matplotlib is a Python 2D plotting library which produces publication quality figures in a variety of hardcopy formats and interactive environments across platforms. \url{https://matplotlib.org/}\label{note3}} for 2D plots (\textbf{First quiz 15 mins before end of class})
+\item 10/05 Contour plots, 3D plot, Histograms
+\item 10/12 Statistical distributions and functions
+\item 10/19 Optimization in Scipy\footnote{SciPy is a Python-based ecosystem of open-source software for mathematics, science, and engineering. \url{https://www.scipy.org/}\label{note2}}
+\item 10/26 Python read and write: opening and modifying text/csv files
+\item 11/02 Symbolic math with SymPy\footnote{SymPy is a Python library for symbolic mathematics. \url{http://www.sympy.org}}, DOE with pyDOE (\textbf{Second quiz 15 mins before end of class})
+\item 11/09 Scikit-learn\footnote{Machine Learning in Python. \url{http://scikit-learn.org}\label{note4}} surrogate modeling 
+\item 11/16 Scikit-learn\footref{note4}: surrogate modeling and machine learning
+\item 11/30 Pandas\footnote{\textit{pandas} is an open source, BSD-licensed library providing high-performance, easy-to-use data structures and data analysis tools for the Python programming language. \url{http://pandas.pydata.org/}} and DataFrames / Review for final
+\item 12/11 Final Exam (same time same room)
+\end{enumerate}
+
+
+\section{UF policy}
+\textbf{UNIVERSITY POLICY ON ACCOMMODATING STUDENTS WITH DISABILITIES}: Students requesting accommodation for disabilities must first register with the Dean of Students Office (\url{http://www.dso.ufl.edu/drc/}). The Dean of Students Office will provide documentation to the student who must then provide this documentation to the instructor when requesting accommodation. You must submit this documentation prior to submitting assignments or taking the quizzes or exams. Accommodations are not retroactive, therefore, students should contact the office as soon as possible in the term for which they are seeking accommodations. 
+
+\textbf{UNIVERSITY POLICY ON ACADEMIC MISCONDUCT}:  Academic honesty and integrity are fundamental values of the University community. Students should be sure that they understand the UF Student Honor Code at \url{http://www.dso.ufl.edu/students.php}.
+
+\textbf{COURSE EVALUATION}
+Students are expected to provide feedback on the quality of instruction in this course by completing online evaluations at \url{https://evaluations.ufl.edu/evals}.  Evaluations are typically open during the last two or three weeks of the semester, but students will be given specific times when they are open. Summary results of these assessments are available to students at \url{https://evaluations.ufl.edu/results/}.
+
+\textbf{STUDENT PRIVACY}
+There are federal laws protecting your privacy with regards to grades earned in courses and on individual assignments.  For more information, please see:  \url{http://registrar.ufl.edu/catalog0910/policies/regulationferpa.html}
+
+
+\section{Campus resources}
+\textbf{U Matter, We Care:} 
+Your well-being is important to the University of Florida.  The U Matter, We Care initiative is committed to creating a culture of care on our campus by encouraging members of our community to look out for one another and to reach out for help if a member of our community is in need.  If you or a friend is in distress, please contact umatter@ufl.edu so that the U Matter, We Care Team can reach out to the student in distress.  A nighttime and weekend crisis counselor is available by phone at 352-392-1575.  The U Matter, We Care Team can help connect students to the many other helping resources available including, but not limited to, Victim Advocates, Housing staff, and the Counseling and Wellness Center.  Please remember that asking for help is a sign of strength.  In case of emergency, call 9-1-1.
+
+\textbf{Counseling and Wellness Center:} \url{http://www.counseling.ufl.edu/cwc}, and  392-1575; and the University Police Department: 392-1111 or 9-1-1 for emergencies. 
+
+\textbf{Sexual Assault Recovery Services (SARS)} 
+Student Health Care Center, 392-1161. 
+
+\textbf{University Police Department} at 392-1111 (or 9-1-1 for emergencies), or http://www.police.ufl.edu/. 
+
+\section{Additional resources}
+For those that would like a textbook to follow, I'd recommend Dr. Jake VanderPlas's \textit{Python Data Science Handbook: Essential Tools for Working with Data}. \url{http://shop.oreilly.com/product/0636920034919.do}. Dr. VanderPlas has made the textbook available for free in the form of Jupyter notebooks which can be viewed at \url{https://github.com/jakevdp/PythonDataScienceHandbook} or \url{http://nbviewer.jupyter.org/github/jakevdp/PythonDataScienceHandbook/blob/master/notebooks/Index.ipynb}
+
+\textit{A whirlwind Tour of Python} by Dr. VanderPlas is a short book to prepare users with the bare essentials for working with Python. It is also available for free at \url{http://www.oreilly.com/programming/free/files/a-whirlwind-tour-of-python.pdf} or \url{https://github.com/jakevdp/WhirlwindTourOfPython}
+
+Important links:
+\begin{itemize}
+\item Python main website \url{https://Python.org}
+\item Anaconda download \url{https://www.continuum.io/downloads}
+\item Enthought Canopy download \url{https://store.enthought.com/downloads/}
+\item Write Python 2.7 and 3.X code \url{http://python-future.org/imports.html}
+\end{itemize}
+
+If you are coming from MATLAB:
+\begin{itemize}
+\item \url{http://mathesaurus.sourceforge.net/matlab-numpy.html}
+\item \url{https://docs.scipy.org/doc/numpy-dev/user/numpy-for-matlab-users.html}
+\end{itemize}
+
+
+%The costs to run the course can be kept small. I'd be willing to run the lecture recording by myself In order to reduce the costs of the course
+
+%Python is much more than a scripting language. With the inclusion of NumPy, SciPy, and Matplotlib Python becomes a powerful numerical analysis tool applicable to many researchers. Python can be used to perform matrix operations, numerical analysis, statistics, big data operations, regression, surrogate modeling, machine learning, and much more. The widespread popularity of Python has created a plethora of libraries that graduate students will find useful, ranging from commercial software APIs to the state-of-the-art deep learning libraries. 
+
+%\noindent
+%I use Python extensively in my research because 
+%\begin{itemize}
+%\item Python is a powerful programming language which I use 
+%\item a great alternative to Matlab for research because of 
+%\item has a beautiful simple syntax
+%\end{itemize}
+%%(a) it is a great scripting language that I use to … (b) I use it instead fo Matlab because it is free even when I am not connected to the university, I do not run into snags because of limited number of licenses as some of the grad students in a course I have taken had (c) ???
+%
+%\noindent
+%I would like to teach a one-credit special graduate course on Python because
+%\begin{itemize}
+%\item I know that Python will help many other MAE grad students
+%\item there are few alternative opportunities
+%\item Learning a language is always easier with some guidance
+%\item I would like to gain teaching experience
+%\end{itemize}
+%%: (a) I know that Python can help many other MAE grad students; (b) teaching is a great way to deepen my knowledge; (c) I would like to get teaching experience.
+%
+%\noindent
+%The course will prepare students for 
+%\begin{itemize}
+%\item Python installation and scientific libraries
+%\item Basic syntax and data types
+%\item Functions and objects
+%\item Data manipulation
+%\item Numerical and statistical analysis including: linear algebra, matrix operations, regression, and more
+%\end{itemize}
+%The course will cover the basic usage of Python. Students will learn how to use Python to perform basic numerical analysis. Various linear algebra problems and statistical problems will be solved throughout the duration of the course. The students will learn how to install and use new Python libraries.
+
+%\section{Why Python?}
+%
+%Python is powerful scripting language, a complete object-oriented programming language, and extremely powerful for researches who perform numerical work. In 2016 IEEE SPECTRUM rated Python as the third most popular programming language, behind Java and C. However despite Python's popularity, there are zero courses being offered at UF in Fall 2017 with Python as a keyword or title. Additionally the overall knowledge and awareness of Python in the MAE department is sparse. The proposed course on numerical analysis with Python aims to fill a void in the MAE department by demonstrating to graduate students how they can take advantage of what Python has to offer.
+%
+%Python interfaces are provided by many software packaged that are popular within the MAE department. Notable software packages include the popular FEA program Abaqus or LAMMPS the popular molecular dynamics simulator. However there are many other software packages relevant to the MAE department that include tools for the Python language (HyperMesh, MSC Marc, and more). These Python interfaces and libraries may help streamline and automate many tedious research tasks for graduate students!
+%
+%Python is much more than a scripting language. With the inclusion of NumPy, SciPy, and Matplotlib Python becomes a powerful numerical analysis tool applicable to many researchers. Python can be used to perform matrix operations, numerical analysis, statistics, big data operations, regression, surrogate modeling, machine learning, and much more. The widespread popularity of Python has created a plethora of libraries that graduate students will find useful, ranging from commercial software APIs to the state-of-the-art deep learning libraries. 
+%
+%The combination of Raspberry Pi's and Python provide a cheap personal computing experience that has never before existed. Students can use the combination to create custom prototypes and test benches for a variety of applications. Projects can include any custom hardware/software interaction with applications from facial detection, home automation, to mechanical/thermo fluid test benches. 
+%
+%\section{Intended Audience}
+%The intended audience will be Graduate students whose research involves the use of numerical and statistical analysis. Students will be expected to have a strong mathematical background in linear algebra, numerical methods, and statistics. Ideally the student is looking to incorporate Python into their research projects. The audience can be summarized by the following list:
+%
+%\begin{itemize}
+%\item Graduate students with strong statistical and numerical background
+%\item Programming experience (MATLAB preferred)
+%\item Research or interest in: numerical and statistical analysis, regression, surrogate modeling, optimization, scripting, and machine learning
+%\end{itemize}
+%
+%\section{Course Outline}
+%
+%The course will cover the basic usage of Python. Students will learn how to use Python to perform basic numerical analysis. Various linear algebra problems and statistical problems will be solved throughout the duration of the course. The students will learn how to install and use new Python libraries. The last topic of the course will include the installation and use of state-of-the-art deep learning libraries available in Python. The course will end with a four week individual student project, where the students will have an opportunity to apply their newly established understanding of Python to their own research problem. An estimated sixteen week course outline is provided below:  
+%\begin{enumerate}
+%\item Python installation and basics
+%\item Ways to use Python: IDEs, iPython, notebooks
+%\item Basics: data types, loops, classes, objects
+%\item Python read and write: opening and modifying text/csv files
+%\item Numpy, Scipy, and Matplotlib
+%\item Matrix operations
+%\item Linear regression
+%\item Statistical distributions and functions
+%\item Optimization
+%\item Python libraries and pip
+%\item Sci-kit learn: surrogate modeling
+%\item Keras: Deep-learning with Theano or TensorFlow
+%\item Student project
+%\item Student project
+%\item Student project
+%\item Student project
+%\end{enumerate}
+%
+%\section{Expected Outcomes}
+%
+%It is expected that the student will learn a basic understanding of the Python programming language and be capable of implementing Python into their research. Students will become familiar with popular Python numerical and statistical libraries. An important aspect of Python is the numerous libraries available, and it will be expected that student know how to install libraries, read documentation, and implement Python libraries. The summarized outcomes include:
+%\begin{itemize}
+%\item Basic understanding of Python language
+%\item Apply Python to solve numerical analysis, statistical, and linear algebra problems
+%\item Independently install and apply new Python libraries
+%\end{itemize}
+%
+%\section{About the instructor}
+%Charles (CJ) Jekel is a PhD Student who does everything in Python. His research looks at using statistical and numerical methods to better calibrate parameters for highly complex flexible composite/membrane materials. CJ's Python experiences include creating automated FE meshers, running expensive HPC non-linear FE optimizations, various regression modeling, twitter bots, and even hacking his own online dating profile. His motivation for creating this course is simply to demonstrate how Python can be useful in the research of fellow graduate students. 
+
+
+
+\end{document}

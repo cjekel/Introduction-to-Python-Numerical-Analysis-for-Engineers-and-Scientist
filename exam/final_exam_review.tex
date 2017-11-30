@@ -1,0 +1,198 @@
+\documentclass[12pt]{article}
+
+\setlength{\topmargin}{-.75in} \addtolength{\textheight}{2.00in}
+\setlength{\oddsidemargin}{.00in} \addtolength{\textwidth}{.75in}
+
+\usepackage{amsmath,color,graphicx}
+\usepackage{minted}
+
+\nofiles
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0in}
+
+
+\begin{document}
+
+\noindent {\sc {\bf {\Large Final review}}
+            \hfill EML4930/6934, Python Programming, Fall 2017}
+\bigskip
+
+\noindent {\sc  {}
+            \hfill {\large Name:}
+             \hfill}
+\bigskip
+\bigskip
+
+\textbf{Instructions:} Please answer the questions below. You are not allowed to  use any notes or calculator on this Exam. You are not allowed to work with your neighbor. 
+\bigskip
+
+
+\begin{enumerate}
+\item Name one difference between Python 2 and Python 3.
+\item Show a properly syntax single line comment in Python. Show a bulk/multi-line comment in Python.
+\item Consider floor division in Python 3. What will 3//2 return? 
+\item Consider a list named x. What is the easiest way to call the last item in list x?
+\item How should you properly denote a code block in Python?
+\item Consider the following code:
+\begin{minted}
+{python}
+for i in range(100):
+    print(i)
+\end{minted}
+What will be the first value of i? What will be the last value of i?
+\item Consider the following code:
+\begin{minted}
+{python}
+x = [1, 2, 3, 4, 5]
+y = [i**2 for i in x]
+\end{minted}
+List the values in y.
+\item Define a function solve the quadratic equation
+\begin{equation}
+ax^2 + bx + c = 0
+\end{equation} where $a,b,c$ are known numbers that are the input to your function. The solution is obtained as
+\begin{equation}
+x_1 = \frac{-b + \sqrt{b^2 - 4ac}}{2a}, x_2 = \frac{-b + \sqrt{b^2 - 4ac}}{2a}
+\end{equation} and your function should return $x_1$ and $x_2$.
+\item What is the output of the following code
+\begin{minted}
+{python}
+x = 1
+def new_x():
+    x = 2
+    print(x)
+new_x()
+print(x)
+\end{minted}
+\item What is the name of the function within a class that runs automatically on each new instance of an object?
+\item Consider an object named a. What is one way to list all of the attributes (and methods) within the object a?
+\item How would you take the square root of 63.1516 in Python? (if you use a library you must stat the correct import)
+\item Consider a list name x that already contains a lot of information. Consider a list y = ['bob', 'loves Python', 87289]. How would you add y to the end of list x?
+\item z is a high dimensional numpy array. How would you find the index location of the maximum value of z?
+\item Code a:
+\begin{minted}
+{python}
+import numpy as np
+x = np.random.random(100000)
+y = []
+for i in x:
+    y.append(2.0*x)
+y = np.array(y)
+\end{minted}
+
+Code b:
+\begin{minted}
+{python}
+import numpy as np
+x = np.random.random(100000)
+y = 2.0*x
+\end{minted}
+
+Code a and code b do the exact same thing. Which code will run faster? (a, b, or both will run the same speed) Why?
+\item Your friend is new to Python and programming. He is running the following code:
+\begin{minted}
+{python}
+from __future__ import division
+import numpy as np
+x = np.ones(10, dtype='int')
+y = np.random.random(10)
+for i in range(10):
+    x[i] = y[i]/2.0
+\end{minted}
+but he keeps getting that x = array([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]). Why is each item in x zero?
+\item given 
+x = np.array([[4.0, 2.0],[-2.0,3.0]])
+
+How would you transpose x? 
+\item Write out the values in z
+\begin{minted}
+{python}
+x = np.array([[4.0, 2.0],
+              [-2.0,3.0]])
+y = np.array([[2.0, 1.0],
+              [0.0, 1.0])
+z = x*y
+\end{minted}
+\item Consider the following matrix multiplication
+\begin{equation}
+\begin{bmatrix}
+2 & 3 \\
+1 & 0 \\
+\end{bmatrix}\begin{bmatrix}
+5 & 2 \\
+1 & 3 \\
+\end{bmatrix}\begin{bmatrix}
+1 & 0 \\
+2 & 0 \\
+\end{bmatrix} = z
+\end{equation} Write out all the code (including imports) to solve for z in Python.
+\item Plot the function 
+\begin{equation}
+y(x) = x^3 + 2x + 10.0
+\end{equation} on the domain \begin{equation}
+10 \leq x \leq 19
+\end{equation} using Python. Include all necessary imported libraries. 
+\item Define a function that will return \textit{A}, \textit{B}. \textit{A} and \textit{B} are variables passed to the function. If B is not specified, it will default to a value of 1.0.
+\item Open readme.txt using Python and print the contents.
+\item What is the difference between 
+\begin{minted}
+{python}
+f = open(myFile)
+\end{minted}
+and
+\begin{minted}
+{python}
+with open(myFile) as f:
+\end{minted}
+\item Why Does the following code produce x = array([0, 0, 1]) in  Python?
+\begin{minted}
+{python}
+x = np.array((0,0,0))
+for i in range(3):
+    x[i] = i/2.0
+\end{minted}
+Fix this code such that x = array([0.0, 0.5, 1.0]) after the for loop.
+\item Correct this code
+\begin{minted}
+{python}
+for i in range(10):
+    if i > 5
+        break
+\end{minted}
+such that it no longer produces this SyntaxError
+\begin{minted}
+{python}
+    if i > 5
+            ^
+SyntaxError: invalid syntax 
+\end{minted}
+\item Why would you use numpy.random.seed() when generating random numbers?
+\item Your friend wanted to grab the First item in the numpy array \textit{x}. Consider his code:
+\begin{minted}
+{python}
+x = np.random.random(100)
+y = x(1) 
+\end{minted}
+produces the Following syntax error
+\begin{minted}
+{python}
+      1 x = np.random.random(100)
+      2 x = np.random.random(100)
+----> 3 y = x(1)
+
+TypeError: 'numpy.ndarray' object is not callable
+\end{minted}
+What two things is your friend missing? 
+\item What does the function \textit{os.system} do? Name a potential example where \textit{os.system} could be useful in a Python program? 
+\item What is the Difference between Built-In Python libraries like os and math and libraries like numpy, pandas, and matplotlib?
+\item Consider
+\mint{python}|a = [0.0, 1.0, ['hi', 'world'], 2.0, 'blue']|
+what will
+\mint{python}|print(len(a))|
+return?
+\end{enumerate}
+
+
+\end{document}

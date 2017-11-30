@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+
+\setlength{\topmargin}{-.75in} \addtolength{\textheight}{2.00in}
+\setlength{\oddsidemargin}{.00in} \addtolength{\textwidth}{.75in}
+
+\usepackage{amsmath,color,graphicx}
+\usepackage{minted}
+
+\nofiles
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0in}
+
+
+\begin{document}
+
+\noindent {\sc {\bf {\Large Quiz 2 Solutions}}
+            \hfill EML4930/6934, Python Programming, Fall 2017}
+\bigskip
+
+\noindent {\sc  {}
+            \hfill {\large Name:}
+             \hfill}
+\bigskip
+
+
+{\bf Problem 1.}(2 points.) Consider an object named my\_rocket\_ship. What is one way to list all of the attributes (and methods) within the object my\_rocket\_ship?
+
+\mint{python}|dir(my_rocket_ship)|
+or
+\mint{python}|my_rocket_ship.__dir__() # only works with new Python objects|
+
+
+
+{\bf Problem 2.}(2 points.) z is a one dimensional numpy array. How would you find the index location of the maximum value in z? (\textbf{Hint}: There is a function in numpy to do this. You can attempt to write a search function in Python for full points, but please use the numpy function if you remember it.)
+
+\begin{minted}
+{python}
+import numpy as np
+np.argmax(z)
+\end{minted}
+or
+\mint{python}|z.argmax()|
+or
+\begin{minted}
+{python}
+# search function
+maxVal = z.max()
+for i,j in enumerate(z):
+    if j == maxVal:
+        max_val_index = i
+        break
+\end{minted}
+
+
+
+
+{\bf Problem 3.}(6 points.) Plot the function 
+\begin{equation}
+y(x) = x^3 + 2x + 10.0
+\end{equation} on the domain \begin{equation}
+10 \leq x \leq 19
+\end{equation} using Python. Include all necessary imported libraries. (In order to get full points, I should be able to see the figure after executing your code from the standard Python interpreter.)
+
+\begin{minted}
+{python}
+import numpy as np
+import matplotlib.pyplot as plt
+x = np.linspace(10.0, 19.0, 1000)
+# x doesn't have to be linspace, but any reasonable
+# interpretation of the domain
+y = x**3 + 2*x + 10.0
+plt.figure()
+plt.plot(x,y)
+plt.show()
+# You need plt.show() in order to display the figure
+# from standard Python interpreter
+\end{minted}
+
+%{\bf Problem 1.}(10 points.)  The surface area of a sphere is increasing at a rate of 2 $\frac{\text{cm}^2}{\text{s}}$. Fine the rate at which the radius is increasing when the radius is $10$ cm.
+%
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%{\bf Problem 2.}(10 points.) State what is the meaning of life.
+%
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+
+
+\end{document}

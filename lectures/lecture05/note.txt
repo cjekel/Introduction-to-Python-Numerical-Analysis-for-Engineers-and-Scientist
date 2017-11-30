@@ -1,0 +1,7 @@
+I should start off the lecture by explaining the difference between
+a = np.array([1,2,3]) # vector
+b = np.array([[1],[2],[3]]) # 2 dimmensional array (matrix)
+
+because there was a lot of questions related to this topic
+
+Also showcase * in print

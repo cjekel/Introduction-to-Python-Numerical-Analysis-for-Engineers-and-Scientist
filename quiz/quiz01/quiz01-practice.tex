@@ -1,0 +1,118 @@
+\documentclass[12pt]{article}
+
+\setlength{\topmargin}{-.75in} \addtolength{\textheight}{2.00in}
+\setlength{\oddsidemargin}{.00in} \addtolength{\textwidth}{.75in}
+
+\usepackage{amsmath,color,graphicx}
+\usepackage{minted}
+
+\nofiles
+
+\pagestyle{empty}
+
+\setlength{\parindent}{0in}
+
+
+\begin{document}
+
+\noindent {\sc {\bf {\Large Quiz 1 - practice questions}}
+            \hfill EML4930/6934, Python Programming, Fall 2017}
+\bigskip
+
+\noindent {\sc  {}
+            \hfill {\large Name:}
+             \hfill}
+\bigskip
+
+The real quiz will have three questions similar to the ones below. 
+
+\begin{enumerate}
+\item Name one difference between Python 2 and Python 3.
+\item Show a properly syntax single line comment in Python. Show a bulk/multi-line comment in Python.
+\item Consider floor division in Python 3. What will 3//2 return? 
+\item Consider a list named x. What is the easiest way to call the last item in list x?
+\item How should you properly denote a code block in Python?
+\item Consider the following code:
+\begin{minted}
+{python}
+for i in range(100):
+    print(i)
+\end{minted}
+What will be the first value of i? What will be the last value of i?
+\item Consider the following code:
+\begin{minted}
+{python}
+x = [1, 2, 3, 4, 5]
+y = [i**2 for i in x]
+\end{minted}
+List the values in y.
+\item Define a function solve the quadratic equation
+\begin{equation}
+ax^2 + bx + c = 0
+\end{equation} where $a,b,c$ are known numbers that are the input to your function. The solution is obtained as
+\begin{equation}
+x_1 = \frac{-b + \sqrt{b^2 - 4ac}}{2a}, x_2 = \frac{-b + \sqrt{b^2 - 4ac}}{2a}
+\end{equation} and your function should return $x_1$ and $x_2$.
+\item What is the output of the following code
+\begin{minted}
+{python}
+x = 1
+def new_x():
+    x = 2
+    print(x)
+new_x()
+print(x)
+\end{minted}
+\item What is the name of the function within a class that runs automatically on each new instance of an object?
+\end{enumerate}
+
+%{\bf Problem 1.}(10 points.)  The surface area of a sphere is increasing at a rate of 2 $\frac{\text{cm}^2}{\text{s}}$. Fine the rate at which the radius is increasing when the radius is $10$ cm.
+%
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%{\bf Problem 2.}(10 points.) State what is the meaning of life.
+%
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+%\bigskip
+
+
+\end{document}
