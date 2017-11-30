@@ -433,6 +433,8 @@ states = states.drop_duplicates()
 # First let's create a dictionary of what we want to add
 votes = {'California': 55, 'Colorado': 9, 'Florida': 29,
  'Illinois': 20, 'New York': 29, 'Texas': 38}
+# now let's turn the dictionary into a pd series
+votes = pd.Series(votes)
 # Now we'll use the assign function to add a column named
 # electoral to the DataFrame
 states = states.assign(electoral=votes)
