@@ -47,9 +47,9 @@
 \begin{frame}{Format of final}
 Sample Questions posted online.
 
-Final will be 20 questions similar to the sample questions. 
+Final will be 21 questions, were 20 questions are graded. (So there will be one bonus question.) Questions will be similar the quiz questions.
 
-\textbf{Monday December 12, 7:30 am - 9:30 am}
+\textbf{Monday December 11, 8:30 am - 9:30 am - MAEA 303}
 \end{frame}
 
 \begin{frame}{Questions you will definitely be asked}
@@ -60,8 +60,20 @@ Final will be 20 questions similar to the sample questions.
 \item Functions in Python
 \item NumPy operations (arrays and multiplication) 
 \item Matplotlib plotting
-\item Concept questions related to your understanding
+\item Concept questions related to your understanding of Python things
+\item How to update libraries via command
+\item How to open a file in Python
 \end{itemize}
+\end{frame}
+
+\begin{frame}{Course Evaluations are important}
+I currently only have a 32\% course evaluation response rate. The last date to provide a course evaluation is December 8th. 
+
+Do not wait until the last minute!
+
+Please go to \url{https://evaluations.ufl.edu} right now and fill out an evaluation if you haven't already.  
+
+Evaluations are the only official means to critique this course and myself.
 \end{frame}
 
 \begin{frame}{Pandas - Python Data Analysis Library}
@@ -332,7 +344,7 @@ states = pd.DataFrame({'population': population, 'area': area})
 
 # we can make a new population density column by accessing the
 # DataFrame like a dictionary
-states = pd.DataFrame({'population': population, 'area': area})
+states['density'] = states['population']/ states['area']
 
 print(states)
 
