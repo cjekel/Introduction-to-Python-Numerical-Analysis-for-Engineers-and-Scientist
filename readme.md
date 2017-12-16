@@ -39,8 +39,8 @@ Lectures were performed using the presentation slides along with a Jupyter Noteb
 | Python read and write: opening and modifying text/csv files | [lecture09.pdf](lectures/lecture09/lecture09.pdf) | [lecture09.ipynb](lectures/lecture09/lecture09.ipynb)  | [hw09.pdf](lectures/lecture09/hw09.pdf) | [HW09 Solution](homework_solutions/hw09_solution.py) |
 | Symbolic math with SymPy , DOE with pyDOE (Second quiz 15 mins before end of class) | [lecture10.pdf](lectures/lecture10/lecture10.pdf) | [lecture10.ipynb](lectures/lecture10/lecture10.ipynb)  | [hw10.pdf](lectures/lecture10/hw10.pdf) | [HW10 Solution](homework_solutions/hw10_solution.py) |
 | Scikit-learn: surrogate modeling | [lecture11.pdf](lectures/lecture11/lecture11.pdf) | [lecture11.ipynb](lectures/lecture11/lecture11.ipynb)  | [hw11.pdf](lectures/lecture11/hw11.pdf) | [HW11 Solution](homework_solutions/hw11_solution.py) |
-| Scikit-learn: surrogate modeling and machine learning | [lecture12.pdf](lectures/lecture12/lecture12.pdf) | [lecture12.ipynb](lectures/lecture12/lecture12.ipynb)  | [hw12.pdf](lectures/lecture12/hw12.pdf) | soon |
-| Pandas and DataFrames / Review for final | [lecture13.pdf](lectures/lecture13/lecture13.pdf) | [lecture13.ipynb](lectures/lecture13/lecture13.ipynb)  | [hw13.pdf](lectures/lecture13/hw13.pdf) | soon |
+| Scikit-learn: surrogate modeling and machine learning | [lecture12.pdf](lectures/lecture12/lecture12.pdf) | [lecture12.ipynb](lectures/lecture12/lecture12.ipynb)  | [hw12.pdf](lectures/lecture12/hw12.pdf) | [HW12 Solution](homework_solutions/hw12_solution.py) |
+| Pandas and DataFrames / Review for final | [lecture13.pdf](lectures/lecture13/lecture13.pdf) | [lecture13.ipynb](lectures/lecture13/lecture13.ipynb)  | [hw13.pdf](lectures/lecture13/hw13.pdf) | [HW13 Solution](homework_solutions/hw13_solution.py) |
 
 [Quiz](/quiz)
 
