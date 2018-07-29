@@ -45,3 +45,8 @@ Lectures were performed using the presentation slides along with a Jupyter Noteb
 [Quiz](/quiz)
 
 [Exam](/exam)
+
+
+# Python Code Editing environment
+
+If you are just starting out with Python, I highly recommend installing [Anaconda](https://www.anaconda.com/download/). Anaconda will include the most popular scientific libraries.  My favorite text editor / IDE for Python is [Visual Studio Code](https://code.visualstudio.com/) which is free and open source. I have a blog post on how to [setup Code for Python](https://jekel.me/2018/Visual-studio-code-Python-setup/). Code has many wonderful features for working with Python, and will help you write Python code that follows the PEP 8 style guide.
